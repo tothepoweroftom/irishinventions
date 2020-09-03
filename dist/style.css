@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
+.popover-body {
+  background: black; 
+  color: white;
+}
+
+.invention-text-input {
+  background: transparent;
+    border-bottom: 1px solid black;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    font-size: 2.5rem;
+  font-weight: 500;
+    outline: none;
+    width: 100%;
+}
+.share {
+  background: transparent; 
+  border: none; 
+  color: black;
+  padding: 0px;
+  outline: none;
+}
+.popover .arrow::after {
+  border-bottom-color: black;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  
+  justify-content: center;
+   background: rgb(230,200,170);
+}
+
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+
+
+.text {
+    padding: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+  height: 40%;
+  width: 90%;
+ 
+
+}
+
+
+.image {
+  width: 100%;
+  height: 50%;
+/*   background: red; */
+}
+
+.button-row{ 
+  display: flex;
+  flex-direction: row-reverse;
+height: 50px;
+width: 100%;
+
+}
+#svg {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#path1 {
+  fill: #2196F3;
+}
+
+#path2 {
+  fill: #3c8246;
+}
+
+.controls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 15px;
+}
+
+.dot {
+  fill: #1a237e;
+  fill-opacity: 0.3;
+  stroke: #1a237e;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+
+
+
+
+
+.top-break {
+  margin: 1em 0 0 0;
+}
+
+.row.row-cols-1.row-cols-sm-1.row-cols-md-2.row-cols-lg-2.row-cols-xl-2.dark {
+}
+
+.row {
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.half-padding {
+  padding: 3em;
+}
+
+.green {
+  background-color: #00992E;
+}
+
+.peach {
+  background-color: #F2CDAD;
+}
+
+.mint {
+  background-color: #C5E7DB;
+}
+
+.dark {
+  background-color: #3C4B42;
+}
+
+.blue {
+  background-color: #007FE9;
+}
