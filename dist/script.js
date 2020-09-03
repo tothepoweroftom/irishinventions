@@ -1,14 +1,14 @@
 let globalText = []
+let rotation2 = 0
 
 let data = {
-    "nnp": ["Treasure", "Gaeilge", "Walkway", "Annascaul", "Dingle", "Gairdin", "School", "Reforestation", "Ireland", "Castlegregory", "Dingle", "Future", "Agriculture", "Tourism", "Telescope", "Change", "Peninsula", "History", "Yard", "Mutton", "Amsterdam", "Production", "Brandon", "Wellbeing", "Library", "Broadband","Internet", "Majority", "Wellness", "Health", "Interdisciplinary", "Something", "Citizen", "Peninsula", "Corca Dhuibhne", "Community", "Environment", "Energy", "Garden", "Tuesday", "February", "Commission", "Secretary", "Travel", "Gaelic", "Fishing industry", "Incentivisation scheme", "Ambassador", "Competition", "Everyone", "Vegetable", "Department", "Education", "Student", "Income", "Research", "Comhairle", "Committee", "Minister","Subscription", "Self-driving car"
-    ],
-    "nn": ["peninsula", "field", "livestock", "chosen", "coffee", "gairdin", "history", "energy", "reliance", "community", "ecology", "locality", "sustainabe", "certification", "product", "location", "dingle", "lobster", "alcohol", "holiday", "purchase", "reminder", "destination", "landscape", "environment", "visitor", "activity", "archaeology", "everyone", "development", "digester", "co-operative", "perception", "carbon", "sustainabil", "agri-tourism", "fashion", "book", "email", "resource", "promotion", "short-term", "you're", "scenery", "access", "airport", "technical", "equipment", "production", "centre", "tourism-off", "season", "marine", "science", "industry", "vantage", "astronomy", "cuisine", "growth", "barley", "terroir", "whiskey", "priority", "they're", "malahini", "newcomer", "artist", "residency", "market", "position", "experience", "beiing", "studio", "animation", "design", "dempcracy", "future", "collobaration", "poetry", "university", "barter", "system", "opportunity", "village", "submission", "creativity", "exemplar", "auction", "income", "garden", "kitchen", "heritage", "indepth", "genaeology", "high-speed", "consumption", "resilience", "impression", "society", "lockdown", "recognised", "leader", "generator", "conference", "volume", "weather", "center", "research", "sea","beach", "independence", "station", "transport", "infastructure", "nightlink", "course", "question", "geneolgy", "passport", "chorca", "region", "wellbeing", "advantage", "bridge", "generation", "balance", "second", "google", "camera", "country", "increase", "saving", "reduction", "mentor'", "pipeline", "closed", "circuit", "business", "travel", "innovation", "sister", "information", "sustainability", "distribution", "partnership", "placement", "full-time", "re-sold", "vehicle", "charge", "congestion", "broadband", "marketfair", "immersive", "resort", "ration", "credit", "allowance", "kayak", "tourist", "talent", "vision", "currency", "interaction", "recognition", "spirit", "tradition", "american", "student", "youth", "return", "crossroads", "embassy", "service", "tour", "hospitality", "sector", "revisiting", "winter", "experiment", "enthusiasm", "incentivize", "geneaology", "republic", "support", "anyone", "challenge", "production", "incentivized", "vegetable", "mobility", "knowledge", "commmunity", "integration", "year", "concept", "home-grown", "reduced", "college", "target", "winner", "matter", "person", "climate", "change", "drought", "footprint", "offering", "work/engagement", "incentive", "clean-up", "accountability", "approach", "welfare", "marketplace", "service", "output", "electricity", "analysis", "region", "nation", "subscription", "accommodation", "expert", "attraction", "reality", "workhouse", "complement", "colourscape"],
+    "nnp": ["Treasure", "Gaeilge", "Walkway", "Annascaul", "Dingle", "Gairdin", "School", "Reforestation", "Ireland", "Castlegregory", "Dingle", "Future", "Agriculture", "Tourism", "Telescope", "Change", "Peninsula", "History", "Yard", "Mutton", "Amsterdam", "Production", "Brandon", "Wellbeing", "Library", "Broadband", "Internet", "Majority", "Wellness", "Health", "Interdisciplinary", "Something", "Citizen", "Peninsula", "Corca Dhuibhne", "Community", "Environment", "Energy", "Garden", "Tuesday", "February", "Commission", "Secretary", "Travel", "Gaelic", "Fishing industry", "Incentivisation scheme", "Ambassador", "Competition", "Everyone", "Vegetable", "Department", "Education", "Student", "Income", "Research", "Comhairle", "Committee", "Minister", "Subscription", "Self-driving car"],
+    "nn": ["peninsula", "field", "livestock", "chosen", "coffee", "gairdin", "history", "energy", "reliance", "community", "ecology", "locality", "sustainabe", "certification", "product", "location", "dingle", "lobster", "alcohol", "holiday", "purchase", "reminder", "destination", "landscape", "environment", "visitor", "activity", "archaeology", "everyone", "development", "digester", "co-operative", "perception", "carbon", "sustainabil", "agri-tourism", "fashion", "book", "email", "resource", "promotion", "short-term", "you're", "scenery", "access", "airport", "technical", "equipment", "production", "centre", "tourism-off", "season", "marine", "science", "industry", "vantage", "astronomy", "cuisine", "growth", "barley", "terroir", "whiskey", "priority", "they're", "malahini", "newcomer", "artist", "residency", "market", "position", "experience", "beiing", "studio", "animation", "design", "dempcracy", "future", "collobaration", "poetry", "university", "barter", "system", "opportunity", "village", "submission", "creativity", "exemplar", "auction", "income", "garden", "kitchen", "heritage", "indepth", "genaeology", "high-speed", "consumption", "resilience", "impression", "society", "lockdown", "recognised", "leader", "generator", "conference", "volume", "weather", "center", "research", "sea", "beach", "independence", "station", "transport", "infastructure", "nightlink", "course", "question", "geneolgy", "passport", "chorca", "region", "wellbeing", "advantage", "bridge", "generation", "balance", "second", "google", "camera", "country", "increase", "saving", "reduction", "mentor'", "pipeline", "closed", "circuit", "business", "travel", "innovation", "sister", "information", "sustainability", "distribution", "partnership", "placement", "full-time", "re-sold", "vehicle", "charge", "congestion", "broadband", "marketfair", "immersive", "resort", "ration", "credit", "allowance", "kayak", "tourist", "talent", "vision", "currency", "interaction", "recognition", "spirit", "tradition", "american", "student", "youth", "return", "crossroads", "embassy", "service", "tour", "hospitality", "sector", "revisiting", "winter", "experiment", "enthusiasm", "incentivize", "geneaology", "republic", "support", "anyone", "challenge", "production", "incentivized", "vegetable", "mobility", "knowledge", "commmunity", "integration", "year", "concept", "home-grown", "reduced", "college", "target", "winner", "matter", "person", "climate", "change", "drought", "footprint", "offering", "work/engagement", "incentive", "clean-up", "accountability", "approach", "welfare", "marketplace", "service", "output", "electricity", "analysis", "region", "nation", "subscription", "accommodation", "expert", "attraction", "reality", "workhouse", "complement", "colourscape"],
     "in": ["around", "outside", "beyond", "through", "between", "across", "unless", "because", "during", "whether", "against", "towards"],
 
     "vbg": ["promoting", "connecting", "sharing", "farming", "Rebuilding", "gathering", "Linking", "growing", "climbing", "Fishing", "building", "Touring", "selling", "vending", "leading", "supporting", "engaging", "planning", "gazing", "learning", "paying", "drawing", "recording", "making", "reawakening", "having", "lasting", "Connecting", "Improving", "adapting", "providing", "taking", "cycling", "walking", "experiencing", "gardening", "coming", "interacting", "healing", "moving", "Moving", "Creating", "engineering", "profiteering", "visiting", "parking", "working", "getting", "bringing", "hiring", "consolidating", "trading", "trying", "enhancing", "dancing", "restricting", "Hosting", "housing", "touring", "creating", "living", "Housing", "planting", "eating", "staying", "combing", "Funding", "funding", "running", "metering"],
     "vbz": ["groups", "stocks", "journeys", "allows", "celebrates", "guides", "points", "spaces", "streams", "services", "retreats", "sources", "results", "routes", "demands", "rations", "graduates", "reaches", "experiences", "provides", "creates", "parties", "schemes", "establishes", "becomes", "markets", "awards", "travels", "invites", "functions", "gardens", "seconds", "issues", "encourages", "breaks", "grants", "discounts", "projects"],
-    "nns": ["visitors", "Contacts", "Conferences", "Retirees", "Industries", "Things", "Operators", "Affairs", "Embassies", "Inhabitants", "People", "Incentives", "Dollars", "Workshops", "Pencils", "growers", "residents", "stories", "insects", "workshops", "farmers", "supermarkets", "businesses", "communities", "e-bikes", "markets", "vegetables", "sheeps", "fisheries", "locals", "focusses", "machines", "hydroponics", "people's", "chains", "coaches", "competitions", "events", "locations", "facilities", "skills", "fishermen", "conferences", "places", "storytellers", "mountains", "dishes", "restaurants", "prices", "classes", "groups", "locations", "beaches", "collaborations", "artists", "musicians", "developers", "designers", "writers", "actors", "directors", "producers", "speakers", "offers", "pillars", "people", "lawnmowers", "gadgets", "images", "pictures", "clothes", "sources", "weekends", "leaves", "sectors", "environments", "ratings", "buildings", "vehicles", "leaders", "solutions", "impacts", "conversations", "traditions", "gardens", "reductions", "months", "busses", "panels", "tourists", "emissions", "footsteps", "companies", "groups", "marathons", "festivals", "creches", "parameters", "powers", "resturants", "distilleries", "initiatives", "workers", "resources", "positions", "houses", "resiidents", "operators", "towns", "representatives", "relationships", "diasporas", "stakeholders", "points", "attractions", "assets", "persons", "clients", "features", "generators", "turbines", "voices", "tariffs", "families", "students", "buisness", "creatives", "innovators", "impulses", "reunions", "students", "affairs", "arts", "countries", "investors", "systems", "bookings", "evenings", "projects", "tomorrows", "children's", "basics", "polytunnels", "greenhouses", "staycations", "gardeners", "visits", "cousins", "members", "passes", "courses", "children", "guests", "lecturers", "towns", "periods", "humans", "animals", "incentives", "dollars", "volunteers", "settings", "providers", "households", "artworks", "hotels", "plants"],
+    "nns": ["visitors", "Contacts", "Conferences", "Retirees", "Industries", "Things", "Operators", "Affairs", "Embassies", "Inhabitants", "People", "Incentives", "Dollars", "Workshops", "Pencils", "growers", "residents", "stories", "insects", "workshops", "farmers", "supermarkets", "businesses", "communities", "e-bikes", "markets", "vegetables", "sheeps", "fisheries", "locals", "focusses", "machines", "hydroponics", "people's", "chains", "coaches", "competitions", "events", "locations", "facilities", "skills", "fishermen", "conferences", "places", "storytellers", "mountains", "dishes", "restaurants", "prices", "classes", "groups", "locations", "beaches", "collaborations", "artists", "musicians", "developers", "designers", "writers", "actors", "directors", "producers", "speakers", "offers", "pillars", "people", "lawnmowers", "gadgets", "images", "pictures", "clothes", "sources", "weekends", "leaves", "sectors", "environments", "ratings", "buildings", "vehicles", "leaders", "solutions", "impacts", "conversations", "traditions", "gardens", "reductions", "months", "busses", "panels", "tourists", "emissions", "footsteps", "companies", "groups", "marathons", "festivals", "creches", "parameters", "powers", "resturants", "distilleries", "initiatives", "workers", "resources", "positions", "houses", "residents", "operators", "towns", "representatives", "relationships", "diasporas", "stakeholders", "points", "attractions", "assets", "persons", "clients", "features", "generators", "turbines", "voices", "tariffs", "families", "students", "buisness", "creatives", "innovators", "impulses", "reunions", "students", "affairs", "arts", "countries", "investors", "systems", "bookings", "evenings", "projects", "tomorrows", "children's", "basics", "polytunnels", "greenhouses", "staycations", "gardeners", "visits", "cousins", "members", "passes", "courses", "children", "guests", "lecturers", "towns", "periods", "humans", "animals", "incentives", "dollars", "volunteers", "settings", "providers", "households", "artworks", "hotels", "plants"],
 
     "vb": ["connect", "listen", "play with", "develop", "become", "engage", "produce", "encourage", "Choose", "attend", "achieve", "Develop", "embrace", "reduce", "dingle", "incorporate", "facilitate", "Provide", "Advertise", "provide", "manage", "improve", "operate", "Create", "eliminate", "participate", "create", "breakdown", "anaerobically digest", "attract", "nurture", "resolve", "Reinvigorate", "establish", "travel", "deliver", "Introduce", "decide", "compete", "prevent", "compare", "commit", "stimulate", "Engage", "collaborate", "receive", "install"],
     "dt": ["another"],
@@ -26,6 +26,9 @@ let data = {
 
 
 }
+
+var rotation = 0;
+
 
 
 
@@ -178,7 +181,9 @@ function isVowel(char) {
 }
 
 function handleClick() {
-
+    
+        $('invention-text-input').focus();
+    
 
     let rand = Math.random()
     let text = ""
@@ -327,50 +332,76 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
- function copySessionLink() {
-   let link = window.location.protocol + "//" + window.location.host + "?data="
-            if (globalText) {
-              
-              let dataArray = JSON.stringify(globalText)
-                      console.log(link + dataArray)
+function copySessionLink() {
+    let link = window.location.protocol + "//" + window.location.host + "?data="
+    if (globalText) {
 
-                if (navigator.share) {
-                    navigator.share({
-                            title: 'Reimagine Dingle Peninsula',
-                            text:  `${globalText[0]} ${globalText[1]}`,
-                            url: link+dataArray ,
-                        })
-                        .then(() => console.log('Successful share'))
-                        .catch((error) => console.log('Error sharing', error));
-                } else {
-                    if (!navigator.clipboard) {
-                        // Clipboard API not available
-                        return
-                    }
-                    navigator.clipboard.writeText( link+dataArray)
-                        .then(() => {
-                            // Success!
-                           
-                        })
-                        .catch(err => {
-                            console.log('Something went wrong', err);
-                        });
+        let dataArray = JSON.stringify(globalText)
+        console.log(link + dataArray)
 
-                }
+        if (navigator.share) {
+            navigator.share({
+                    title: 'Reimagine Dingle Peninsula',
+                    text: `${globalText[0]} ${globalText[1]}`,
+                    url: link + dataArray,
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+        } else {
+            if (!navigator.clipboard) {
+                // Clipboard API not available
+                return
             }
+            navigator.clipboard.writeText(link + dataArray)
+                .then(() => {
+                    // Success!
+
+                })
+                .catch(err => {
+                    console.log('Something went wrong', err);
+                });
 
         }
+    }
+
+}
 
 function updateText(val) {
-  
-  globalText[1] = val
-  console.log(globalText[1])
+
+    globalText[1] = val
+    console.log(globalText[1])
 }
 $(function () {
     $('[data-toggle="popover"]').popover()
     $('.popover-dismiss').popover({
         trigger: 'focus'
     })
+
+    $('#repeat').click(function () {
+
+        // Create a timeline with default parameters
+        var tl = anime.timeline({
+            easing: 'easeOutExpo',
+            duration: 750
+        });
+
+        // Add children
+        tl
+            .add({
+                targets: '#repeat',
+                rotate: rotation2+360,
+            })
+
+            rotation2 += 360
+          
+
+
+    });
+
+    $('#text-input').on('keyup change', function () {
+        globalText[1] = $(this).val()
+        console.log(globalText)
+    });
 
     let rand = Math.random()
     let text = ""
@@ -390,32 +421,32 @@ $(function () {
         stext = newInventionC()[1]
 
     }
-  globalText = [text, stext]
-  
-  
-    var data = getUrlParameter('data');
-  console.log(data)
+    globalText = [text, stext]
 
-    if(!data) {
-           document.getElementById('invention-text').innerText = text
-      $('#text-input').val(stext)
-  
+
+    var data = getUrlParameter('data');
+    console.log(data)
+
+    if (!data) {
+        document.getElementById('invention-text').innerText = text
+        $('#text-input').val(stext)
+
     } else {
-      
-      let textArray = JSON.parse(data)
-       document.getElementById('invention-text').innerText = textArray[0]
-      $('#text-input').val(textArray[1])
+
+        let textArray = JSON.parse(data)
+        document.getElementById('invention-text').innerText = textArray[0]
+        $('#text-input').val(textArray[1])
 
     }
     var blob2 = createBlob({
-          element: document.querySelector("#path2"),
-          numPoints: 5 + Math.floor(Math.random() * 15),
-          centerX: 500,
-          centerY: 500,
-          minRadius: 150,
-          maxRadius: 400 + Math.random() * 100,
-          minDuration: 2.5,
-          maxDuration: 15.5
-      });
+        element: document.querySelector("#path2"),
+        numPoints: 5 + Math.floor(Math.random() * 15),
+        centerX: 500,
+        centerY: 500,
+        minRadius: 150,
+        maxRadius: 400 + Math.random() * 100,
+        minDuration: 2.5,
+        maxDuration: 15.5
+    });
 
 })

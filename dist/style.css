@@ -7,11 +7,17 @@
 
 .invention-text-input {
   background: transparent;
-    border-bottom: 1px solid black;
+    border-bottom: 0px solid black;
     border-top: none;
     border-right: none;
     border-left: none;
-    font-size: 2.5rem;
+    font-size: 1.75rem;
+  
+     
+      height: fit-content;
+      resize: none;
+
+  
   font-weight: 500;
     outline: none;
     width: 100%;
@@ -25,6 +31,17 @@
 }
 .popover .arrow::after {
   border-bottom-color: black;
+}
+
+.rotation {
+  animation-name: rotate;
+  animation-duration: 0.5s;
+}
+
+@keyframes rotate {
+  0% {transform: rotate(0);}
+  99% {transform: rotate(360);}
+  100% {transform: rotate(0);}
 }
 
 body {
