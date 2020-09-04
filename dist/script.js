@@ -181,9 +181,9 @@ function isVowel(char) {
 }
 
 function handleClick() {
-    
-        $('invention-text-input').focus();
-    
+
+    $('invention-text-input').focus();
+
 
     let rand = Math.random()
     let text = ""
@@ -332,18 +332,35 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
+function encodeUnicode(str) {
+    // first we use encodeURIComponent to get percent-encoded UTF-8,
+    // then we convert the percent encodings into raw bytes which
+    // can be fed into btoa.
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
+        function toSolidBytes(match, p1) {
+            return String.fromCharCode('0x' + p1);
+        }));
+}
+
+function decodeUnicode(str) {
+    // Going backwards: from bytestream, to percent-encoding, to original string.
+    return decodeURIComponent(atob(str).split('').map(function (c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+  }
+
 function copySessionLink() {
     let link = window.location.protocol + "//" + window.location.host + "?data="
     if (globalText) {
 
         let dataArray = JSON.stringify(globalText)
-        console.log(link + dataArray)
+        let shareEncoded = link + encodeUnicode(dataArray)
 
         if (navigator.share) {
             navigator.share({
                     title: 'Reimagine Dingle Peninsula',
                     text: `${globalText[0]} ${globalText[1]}`,
-                    url: link + dataArray,
+                    url: shareEncoded,
                 })
                 .then(() => console.log('Successful share'))
                 .catch((error) => console.log('Error sharing', error));
@@ -352,7 +369,7 @@ function copySessionLink() {
                 // Clipboard API not available
                 return
             }
-            navigator.clipboard.writeText(link + dataArray)
+            navigator.clipboard.writeText(shareEncoded)
                 .then(() => {
                     // Success!
 
@@ -389,11 +406,11 @@ $(function () {
         tl
             .add({
                 targets: '#repeat',
-                rotate: rotation2+360,
+                rotate: rotation2 + 360,
             })
 
-            rotation2 += 360
-          
+        rotation2 += 360
+
 
 
     });
@@ -426,14 +443,16 @@ $(function () {
 
     var data = getUrlParameter('data');
     console.log(data)
+    
 
     if (!data) {
         document.getElementById('invention-text').innerText = text
         $('#text-input').val(stext)
 
     } else {
+        let decodedData = decodeUnicode(data)
 
-        let textArray = JSON.parse(data)
+        let textArray = JSON.parse(decodedData)
         document.getElementById('invention-text').innerText = textArray[0]
         $('#text-input').val(textArray[1])
 
