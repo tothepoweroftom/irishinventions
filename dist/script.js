@@ -182,7 +182,7 @@ function isVowel(char) {
 
 function handleClick() {
 
-    $('invention-text-input').focus();
+    $('#text-input').focus();
 
 
     let rand = Math.random()
