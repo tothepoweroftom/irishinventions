@@ -22,6 +22,10 @@
     outline: none;
     width: 100%;
 }
+
+button:focus {
+  outline: none;
+}
 .share {
   background: transparent; 
   border: none; 
@@ -32,7 +36,11 @@
 .popover .arrow::after {
   border-bottom-color: black;
 }
-
+.reload-button {
+  background: transparent;
+  border: none;
+  outline: none;
+}
 .rotation {
   animation-name: rotate;
   animation-duration: 0.5s;
@@ -53,11 +61,7 @@ body {
    background: rgb(230,200,170);
 }
 
-button {
-  background: transparent;
-  border: none;
-  outline: none;
-}
+
 
 
 
